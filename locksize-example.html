@@ -23,17 +23,13 @@ html, body, div, span, applet, object, iframe,
         h2,p{padding:0;margin:5px;}
         #main{}
         .hidden{display:none;}
-        #cmImageContainer{background-color:#00f}
-        #cmImageSubContainer{background-color:#f00}
+        #cmLockContainer{background-color:#00f}
+        #cmLockSubContainer{background-color:#f00}
         </style>
     </head>
     <body>
         <div id="main">
-            <div id="cmImageContainer">
-                <div id="cmImageSubContainer">
-                    <img src="img/sgl.png" alt="image" id="cmImage" class="cmImageChange"/>
-                </div>
-            </div>
+            <img src="img/sgl.png" alt="image" id="cmImage" class="cmImageChange"/>
         </div>
 <script src="js/jquery/jquery-1.2.6.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -49,15 +45,16 @@ var pointer = 0;
 //var images = ['gulls.png', 'birds.png', 'sgl.png', 'de.png', 'greenarrow.png', 'highres_15632460.png', 'david-pre-helicopter.png', 'highres_15632461.jpg',  'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 var images = ['sgl.png', 'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 
-cmg.query('#cmImage').cmlocksize(this);
 cmg.query(document).ready(function(){
+    cmg.query('#cmImage').cmlocksize({targetID: 'cmImage'});
+
     cmg.query('.cmImageChange').click(function(){
         //console.log("pre-height: " + cmg.query('#cmImage').height() + ", pre-pointer: " + pointer);
         //cmg.query('#cmImageContainer').height(cmg.query('#cmImageSubContainer').height());
-        prevHeight = cmg.query('#cmImageSubContainer').height();
+        prevHeight = cmg.query('#cmLockSubContainer').height();
         console.log("subcontainer prevHeight: " + prevHeight);
 
-        cmg.query('#cmImageContainer').css('height',prevHeight);
+        cmg.query('#cmLockContainer').css('height',prevHeight);
         pointer++;
         pointer = pointer == images.length ? 0 : pointer;
         
@@ -65,7 +62,7 @@ cmg.query(document).ready(function(){
         cmg.query('#cmImage').fadeTo(1000, 0, function () {
             cmg.query(this).attr('src','img/' + images[pointer]);
             cmg.query(this).fadeTo(1000, 1);
-            cmg.query('#cmImageContainer').animate({
+            cmg.query('#cmLockContainer').animate({
                 height: cmg.query(this).height()
             }, 1000, function() {
                 //cmg.query('#cmImageContainer').css('height','auto');

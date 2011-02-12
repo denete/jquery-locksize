@@ -6,6 +6,8 @@
         initLocksize(opts.targetID);
 
         return this.each(function() {
+            var $this = $(this);
+            $this.wrap('<div id="cmLockContainer"><div id="cmLockSubContainer" /></div>');
         });
     };
 
@@ -13,6 +15,7 @@
     function initLocksize(id) {
         //nothing
         }
+
     // private function for debugging
     function debug(data) {
         if (window.console && window.console.log) {

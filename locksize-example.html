@@ -46,9 +46,16 @@ var pointer = 0;
 var images = ['sgl.png', 'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 
 cmg.query(document).ready(function(){
-    cmg.query('#cmImage').cmlocksize({targetID: 'cmImage'});
+    cmg.query('#cmImage').cmlocksize({
+        targetID: 'cmImage',
+        animSpeed: 1000,
+        delay: 1000
+        });
 
     cmg.query('.cmImageChange').click(function(){
+        cmg.query('#cmImage').cmlocksize('lockOn');
+        cmg.query('#cmImage').cmlocksize('lockOff');
+/*
         //console.log("pre-height: " + cmg.query('#cmImage').height() + ", pre-pointer: " + pointer);
         //cmg.query('#cmImageContainer').height(cmg.query('#cmImageSubContainer').height());
         prevHeight = cmg.query('#cmLockSubContainer').height();
@@ -76,6 +83,7 @@ cmg.query(document).ready(function(){
         
         
         //console.log("post-height: " + cmg.query('#cmImage').height() + ", post-pointer: " + pointer);
+*/
     });
 
 });

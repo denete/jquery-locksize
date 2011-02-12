@@ -52,19 +52,22 @@ cmg.query(document).ready(function(){
         //console.log("pre-height: " + cmg.query('#cmImage').height() + ", pre-pointer: " + pointer);
         //cmg.query('#cmImageContainer').height(cmg.query('#cmImageSubContainer').height());
         prevHeight = cmg.query('#cmLockSubContainer').height();
-        console.log("subcontainer prevHeight: " + prevHeight);
+        prevWidth = cmg.query('#cmLockSubContainer').width();
+        console.log('prevHeight: ' + prevHeight + ', prevWidth: ' + prevWidth);
+        //console.log("subcontainer prevHeight: " + prevHeight);
 
-        cmg.query('#cmLockContainer').css('height',prevHeight);
+        cmg.query('#cmLockContainer').css({height: prevHeight, width: prevWidth});
         pointer++;
         pointer = pointer == images.length ? 0 : pointer;
         
 
-        cmg.query('#cmImage').fadeTo(1000, 0, function () {
+        cmg.query('#cmImage').fadeTo(500, 0, function () {
             cmg.query(this).attr('src','img/' + images[pointer]);
-            cmg.query(this).fadeTo(1000, 1);
+            cmg.query(this).fadeTo(500, 1);
             cmg.query('#cmLockContainer').animate({
+                width: cmg.query(this).width(),
                 height: cmg.query(this).height()
-            }, 1000, function() {
+            }, 500, function() {
                 //cmg.query('#cmImageContainer').css('height','auto');
             });
         });

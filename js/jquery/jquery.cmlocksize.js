@@ -6,7 +6,7 @@
                 $this = $(this);
                 data = $this.data('cmlocksize');
                 if(!data){
-                    $this.wrap('<div class="cmLockContainer"><div class="cmLockSubContainer" /></div>');
+                    $this.wrap('<div class="cmLockContainer" style="overflow:hidden;"><div class="cmLockSubContainer" style="overflow:hidden;" /></div>');
                     $this.parents('.cmLockContainer').css({width: $this.width(),height: $this.height()});
                     opts = $.extend({}, $.fn.cmlocksize.defaults, options);
                     $this.data('cmlocksize', opts);
@@ -23,6 +23,7 @@
         lockOn: function(){
             prevHeight = $this.parent().height();
             prevWidth = $this.parent().width();
+            if(!opts.fade) opts.animSpeed = 100;
 
             $this.fadeTo(opts.animSpeed, 0, function(){
                 $this.parents('.cmLockContainer').css({height: prevHeight, width: prevWidth});
@@ -31,8 +32,8 @@
                     $this.parents('.cmLockContainer').animate({
                         width: $this.width(),
                         height: $this.height()
-                    }, 500, function() {
-                        //nothing
+                    }, opts.animSpeed, function() {
+                        opts.onUnlock.call(this);
                     });
                 });
             });
@@ -54,7 +55,9 @@
         animSpeed: 500,
         delay: 250,
         targetID: "",
-        onLock: function(){}
+        onLock: function(){},
+        onUnlock: function(){},
+        fade: true
     };
 
 })(cmg.query);

@@ -15,12 +15,12 @@
         h2,p{padding:0;margin:5px;}
         #main{}
         .hidden{display:none;}
-        .cmLockContainer{background-color:#00f;overflow:hidden}
-        .cmLockSubContainer{background-color:#f00;overflow:hidden}
+        .cmLockContainer{/*background-color:#00f*/border:1px solid #000}
+        .cmLockSubContainer{/*background-color:#f00*/}
         </style>
     </head>
     <body>
-        <a href="javascript:void(0);" id="destroy">Destroy instance of cmlocksize</a><br />
+        Border shown to illustrate the locking and then animating sizes as well as the presence and removal of the size locking wrapper.<br />Click the image to see the effect.<br /><a href="javascript:void(0);" id="destroy">Destroy instance of cmlocksize</a><br /><br />
         <div id="main">
             <img src="img/sgl.png" alt="image" id="cmImage" class="cmImageChange"/>
         </div>
@@ -38,7 +38,7 @@
 <script src="js/jquery/jquery.cmlocksize.js" type="text/javascript"></script>
 <script type="text/javascript">
 var pointer = 0;
-var images = ['sgl.png', 'gulls.png', 'birds.png', 'de.png', 'greenarrow.png', 'highres_15632460.png', 'david-pre-helicopter.png', 'highres_15632461.jpg',  'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
+var images = ['sgl.png', 'gulls.png', 'de.png', 'greenarrow.png', 'highres_15632460.png', 'david-pre-helicopter.png', 'birds.png', 'highres_15632461.jpg',  'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 //var images = ['sgl.png', 'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 
 cmg.query(document).ready(function(){
@@ -58,7 +58,9 @@ cmg.query(document).ready(function(){
             delay: 100,
             onLock: function(){
                     cmg.query(this).attr('src','img/' + images[pointer]);
-                }
+                },
+            onUnlock: function(){},
+            fade: false
             });
 
         cmg.query('#cmImage').cmlocksize('lockOn');

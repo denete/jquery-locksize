@@ -1,3 +1,12 @@
+/**
+ * Plugin: jQuery Locksize, jquery.cmlocksize.js
+ * Copyright: Copyright (c) 2011 CMGdigital
+ * Version: 1.0.0
+ * Author: David A. Enete
+ * Date: 2011-02-14
+ * Description: jQuery Locksize plugin - holds the size of an element on a page while the element is modified then the lock is released
+ */
+
 (function($) {
     
     var methods = {

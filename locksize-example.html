@@ -23,8 +23,10 @@ html, body, div, span, applet, object, iframe,
         h2,p{padding:0;margin:5px;}
         #main{}
         .hidden{display:none;}
-        #cmLockContainer{background-color:#00f}
-        #cmLockSubContainer{background-color:#f00}
+        /*#cmLockContainer{background-color:#00f;overflow:hidden}
+        #cmLockSubContainer{background-color:#f00;overflow:hidden}*/
+        .cmLockContainer{background-color:#00f;overflow:hidden}
+        .cmLockSubContainer{background-color:#f00;overflow:hidden}
         </style>
     </head>
     <body>
@@ -46,15 +48,36 @@ var pointer = 0;
 var images = ['sgl.png', 'silh.png', 'sunset.png', 'three.png', 'twogulls.png'];
 
 cmg.query(document).ready(function(){
-    cmg.query('#cmImage').cmlocksize({
-        targetID: 'cmImage',
-        animSpeed: 1000,
-        delay: 1000
-        });
 
     cmg.query('.cmImageChange').click(function(){
+
+        pointer++;
+        pointer = pointer == images.length ? 0 : pointer;
+
+
+        cmg.query('#cmImage').cmlocksize({
+            targetID: 'cmImage',
+            animSpeed: 500,
+            delay: 500,
+            onLock: function(){
+                    cmg.query(this).attr('src','img/' + images[pointer]);
+                }
+            });
+
+
+        /*cmg.query('#cmImage').cmlocksize({onLock: function(){
+                cmg.query(this).attr('src','img/' + images[pointer]);
+            }});*/
         cmg.query('#cmImage').cmlocksize('lockOn');
-        cmg.query('#cmImage').cmlocksize('lockOff');
+
+
+
+
+
+        //cmg.query(this).attr('src','img/' + images[pointer]);
+        //cmg.query('#cmImage').cmlocksize('lockOff');
+
+
 /*
         //console.log("pre-height: " + cmg.query('#cmImage').height() + ", pre-pointer: " + pointer);
         //cmg.query('#cmImageContainer').height(cmg.query('#cmImageSubContainer').height());

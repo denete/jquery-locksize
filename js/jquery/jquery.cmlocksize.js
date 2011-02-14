@@ -15,9 +15,12 @@
         },
         destroy: function(){
             return this.each(function(){
+                $this = $(this);
                 data = $this.data('cmlocksize');
-                $this.unwrap().unwrap();
-                $this.removeData('cmlocksize');
+                if(data){
+                    $this.unwrap().unwrap();
+                    $this.removeData('cmlocksize');
+                }
             })
         },
         lockOn: function(){
@@ -60,7 +63,6 @@
     $.fn.cmlocksize.defaults = {
         animSpeed: 500,
         delay: 250,
-        targetID: '',
         onLock: function(){},
         onUnlock: function(){},
         fade: true,

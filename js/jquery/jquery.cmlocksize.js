@@ -30,11 +30,11 @@
                 opts.onLock.call(this);
                 
                 if(opts.autoUnlock){
-                    $this.cmlocksize('unlock');
+                    $this.cmlocksize('lockOff');
                 }
             });
         },
-        unlock: function(){
+        lockOff: function(){
             $this.delay(opts.delay).fadeTo(opts.animSpeed, 1, function(){
                 $this.parents('.cmLockContainer').animate({
                     width: $this.width(),

@@ -15,16 +15,23 @@
         h2,p{padding:0;margin:5px;}
         #main{}
         .hidden{display:none;}
-        .cmLockContainer{/*background-color:#00f*/border:1px solid #000}
-        .cmLockSubContainer{/*background-color:#f00*/}
+        .cmLockContainer{border:1px solid #000}
+        .cmLockSubContainer{}
+        .explanation{font-size:16px;margin-bottom:1em;padding-bottom:1em;border-bottom:1px solid #000}
+        .explanation a{font-size:16px}
+        
         </style>
     </head>
     <body>
-        Border shown to illustrate the locking and then animating sizes as well as the presence and removal of the size locking wrapper.<br />Click the image to see the effect.<br /><a href="javascript:void(0);" id="destroy">Destroy instance of cmlocksize</a><br /><br />
-        <div id="main">
-            <img src="img/sgl.png" alt="image" id="cmImage" class="cmImageChange"/>
+        <div class="explanation">Border shown to illustrate the locking and then animating sizes as well as the presence and removal of the size locking wrapper.<br />Click the image to see the effect.<br /><a href="javascript:void(0);" id="destroy">Destroy instance of cmlocksize</a>
         </div>
+        
 
+        <div id="main">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla justo, condimentum dapibus vulputate ac, feugiat in magna. Morbi congue, lectus eu tincidunt gravida, velit sem rutrum dolor, id convallis mauris dui vitae orci. Integer ornare commodo vulputate. Vivamus eget dignissim arcu. Sed non odio ac massa faucibus malesuada. Donec orci ante, ullamcorper sed consequat sit amet, malesuada vitae orci. Proin ut sapien at quam tristique malesuada vitae quis nisl. Cras et nunc sapien, commodo imperdiet erat. Sed non quam quis massa ultricies faucibus sed nec tellus. Nullam pellentesque sodales egestas. Aenean accumsan volutpat lectus, eget tincidunt diam pellentesque a. Donec lacinia eleifend nibh non tempus.</p>
+            <img src="img/sgl.png" alt="image" id="cmImage" class="cmImageChange"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla justo, condimentum dapibus vulputate ac, feugiat in magna. Morbi congue, lectus eu tincidunt gravida, velit sem rutrum dolor, id convallis mauris dui vitae orci. Integer ornare commodo vulputate. Vivamus eget dignissim arcu. Sed non odio ac massa faucibus malesuada. Donec orci ante, ullamcorper sed consequat sit amet, malesuada vitae orci. Proin ut sapien at quam tristique malesuada vitae quis nisl. Cras et nunc sapien, commodo imperdiet erat. Sed non quam quis massa ultricies faucibus sed nec tellus. Nullam pellentesque sodales egestas. Aenean accumsan volutpat lectus, eget tincidunt diam pellentesque a. Donec lacinia eleifend nibh non tempus.</p>
+        </div>
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
@@ -64,7 +71,8 @@ cmg.query(document).ready(function(){
             autoUnlock: true
             });
 
-        cmg.query('#cmImage').cmlocksize('lockOn');
+            cmg.query('#cmImage').cmlocksize('lockOn');
+            //cmg.query('#cmImage').cmlocksize('lockOff');
     });
 
 });

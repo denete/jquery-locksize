@@ -23,18 +23,24 @@
         lockOn: function(){
             prevHeight = $this.parent().height();
             prevWidth = $this.parent().width();
-            if(!opts.fade) opts.animSpeed = 100;
+            //if(!opts.fade) opts.animSpeed = 100;
 
             $this.fadeTo(opts.animSpeed, 0, function(){
                 $this.parents('.cmLockContainer').css({height: prevHeight, width: prevWidth});
                 opts.onLock.call(this);
-                $this.delay(opts.delay).fadeTo(opts.animSpeed, 1, function(){
-                    $this.parents('.cmLockContainer').animate({
-                        width: $this.width(),
-                        height: $this.height()
-                    }, opts.animSpeed, function() {
-                        opts.onUnlock.call(this);
-                    });
+                
+                if(opts.autoUnlock){
+                    $this.cmlocksize('unlock');
+                }
+            });
+        },
+        unlock: function(){
+            $this.delay(opts.delay).fadeTo(opts.animSpeed, 1, function(){
+                $this.parents('.cmLockContainer').animate({
+                    width: $this.width(),
+                    height: $this.height()
+                }, opts.animSpeed, function() {
+                    opts.onUnlock.call(this);
                 });
             });
         }
@@ -54,10 +60,11 @@
     $.fn.cmlocksize.defaults = {
         animSpeed: 500,
         delay: 250,
-        targetID: "",
+        targetID: '',
         onLock: function(){},
         onUnlock: function(){},
-        fade: true
+        fade: true,
+        autoUnlock: true
     };
 
 })(cmg.query);

@@ -60,7 +60,8 @@ cmg.query(document).ready(function(){
                     cmg.query(this).attr('src','img/' + images[pointer]);
                 },
             onUnlock: function(){},
-            fade: false
+            fade: true,
+            autoUnlock: true
             });
 
         cmg.query('#cmImage').cmlocksize('lockOn');

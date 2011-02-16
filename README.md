@@ -5,11 +5,13 @@ A jQuery plugin to allow elements on a page to be switched out in an AJAXy manne
 
 Locksize 1.0.0 requires jQuery 1.4 or higher.
 
+## Demo
+
 View the [demo page](http://coxmediagroup.github.com/jquery-locksize/ "on github").
 
 ***
 
-## Usage:
+## Usage
 
 >        $('#cmImage').cmlocksize({
 >                animSpeed: 250, // speed of fade and resize animations in milliseconds
@@ -24,7 +26,7 @@ View the [demo page](http://coxmediagroup.github.com/jquery-locksize/ "on github
 >                autoUnlock: true // if set to false, you can call the unlock method when you want to
 >                });
 
-## Methods:
+## Methods
 
 >        $('#cmImage').cmlocksize('lockOn'); // instantiate the lock
 >        $('#cmImage').cmlocksize('lockOff'); // programmatically release the lock

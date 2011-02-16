@@ -29,3 +29,8 @@ View the [demo page](http://coxmediagroup.github.com/jquery-locksize/ "on github
 >        $('#cmImage').cmlocksize('lockOn'); // instantiate the lock
 >        $('#cmImage').cmlocksize('lockOff'); // programmatically release the lock
 >        $('#cmImage').cmlocksize('destroy'); // destroy the instance of cmlocksize
+
+***
+## License
+
+jquery-locksize is licensed under the MIT License. The project is founded by [CMGdigital](http://www.cmgdigital.com).

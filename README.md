@@ -5,6 +5,8 @@ A jQuery plugin to allow elements on a page to be switched out in an AJAXy manne
 
 Locksize 1.0.0 requires jQuery 1.4 or higher.
 
+View the [demo page](http://coxmediagroup.github.com/jquery-locksize/ "on github").
+
 ***
 
 ## Usage:

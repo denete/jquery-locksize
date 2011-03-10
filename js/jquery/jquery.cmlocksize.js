@@ -78,4 +78,4 @@
         autoUnlock: true
     };
 
-})(cmg.query);
+})(jQuery);
